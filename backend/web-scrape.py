@@ -87,18 +87,20 @@ class Weather:
 
 def main():
 
-    print("\nGPS Weather Forecasting")
-    print("Developed by Callum Taylor\n")
+    print("\n----- SISMOS Weather Forecasting -----")
+    print("----- Developed by Callum Taylor -----")
+    print("----- MEng Software Engineering -----")
+    print("----- Heriot Watt University -----\n")
 
     weather = Weather()
 
-    print("Location: " + weather.location)
-    print("Maximum Temperature: " + weather.max_temp)
-    print("Minimum Temperature: " + weather.min_temp)
-    print("08:00 - 14:00 Conditions: " + weather.morning)
-    print("14:00 - 20:00 Conditions: " + weather.afternoon)
-    print("20:00 - 06:00 Conditions: " + weather.evening)
-    print("Sunrise Time: " + weather.sunrise)
-    print("Sunset Time: " + weather.sunset)
+    print("~ Location: " + weather.location)
+    print("~ Maximum Temperature: " + weather.max_temp)
+    print("~ Minimum Temperature: " + weather.min_temp)
+    print("~ 08:00 - 14:00 Conditions: " + weather.morning)
+    print("~ 14:00 - 20:00 Conditions: " + weather.afternoon)
+    print("~ 20:00 - 06:00 Conditions: " + weather.evening)
+    print("~ Sunrise Time: " + weather.sunrise)
+    print("~ Sunset Time: " + weather.sunset)
 
 main()
