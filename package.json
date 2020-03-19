@@ -1,0 +1,23 @@
+{
+  "name": "sismos-weather",
+  "version": "0.0.1",
+  "description": "Sismos Weather | A minimalist weather application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taybluetooth/sismos-weather.git"
+  },
+  "keywords": [
+    "weather",
+    "sismos"
+  ],
+  "author": "Callum Taylor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taybluetooth/sismos-weather/issues"
+  },
+  "homepage": "https://github.com/taybluetooth/sismos-weather#readme"
+}
