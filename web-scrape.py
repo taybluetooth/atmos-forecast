@@ -44,7 +44,7 @@ def get_condition_array(table):
         details = row.find("td", attrs = {'class' : 'weather'})
         condition.append(details.find('p').text.split('\n')[2])
     for j in range(0, 3, 1):
-        condition[j] = regex.sub('', condition[j])
+        condition[j] = regex.sub('', condition[j]).title()
     return condition
 
 def get_morning(condition):
