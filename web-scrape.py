@@ -1,10 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
 import sys
+import re
+
+## GLOBAL VARIABLE DECLARATION ##
 
 response = ""
 content = ""
 table = ""
+regex = re.compile('([^\s\w]|_)+')
 
 def get_response(location):
     url = "https://www.forecast.co.uk/"+location+".html"
@@ -39,8 +43,8 @@ def get_condition_array(table):
         row = table.findAll('tr')[i]
         details = row.find("td", attrs = {'class' : 'weather'})
         condition.append(details.find('p').text.split('\n')[2])
-    for j in range(0, 2, 1):
-        condition[j] = condition[j].strip('\n')
+    for j in range(0, 3, 1):
+        condition[j] = regex.sub('', condition[j])
     return condition
 
 def get_morning(condition):
