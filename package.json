@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/taybluetooth/sismos-weather/issues"
   },
-  "homepage": "https://github.com/taybluetooth/sismos-weather#readme"
+  "homepage": "https://github.com/taybluetooth/sismos-weather#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
 }
