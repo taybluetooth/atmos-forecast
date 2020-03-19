@@ -67,7 +67,7 @@ def get_sun(table, type):
     sun = sun.strip('\n')
     return sun
 
-location = input("Please enter your location: ")
+location = input("Please enter your location: ").replace(' ', '-')
 response = get_response(location)
 content = get_content(response)
 table = get_data(content)
