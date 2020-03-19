@@ -67,7 +67,7 @@ def get_sun(table, type):
     sun = sun.strip('\n')
     return sun
 
-location = input("Please enter your location: ").replace(' ', '-')
+location = input("Please Enter Your Location: ").replace(' ', '-')
 response = get_response(location)
 content = get_content(response)
 table = get_data(content)
@@ -84,6 +84,17 @@ class Weather:
         self.evening = get_evening(condition)
         self.sunrise = get_sun(table, "sunrise")
         self.sunset = get_sun(table, "sunset")
+        """
+        self.rain_chance = get_rain()
+        self.humidity = get_humidity()
+        self.wind = get_wind()
+        self.precipitation() = get_precipitation()
+        self.pressure() = get_pressure()
+        self.visibility = get_visibility()
+        self.air_quality_index = get_air_index()
+        self.air_quality = get_air_quality()
+        self.uv_index = get_uv_index()
+        """
 
 def main():
 
