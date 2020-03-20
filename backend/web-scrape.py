@@ -31,9 +31,11 @@ def get_query(location):
             print("~ " + str(i+1) + ". " + arr[i])
 
         print("\nThere's quite a few " + location.title() + "'s!\n")
-        choice = int(input("Enter the number of the one you meant: "))
+        choice = int(input("~ Enter the number of the one you meant: "))
+        while(not(choice >= 0 and choice < len(link_arr))):
+            choice = int(input("~ Please enter a valid choice: "))
         location = link_arr[choice-1]
-        
+
     return location
 
 def get_basic_response(location):
@@ -53,7 +55,7 @@ def get_detailed_response(location):
         response = requests.get(url, timeout = 5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("That location does not exist!")
+        print("~ That location does not exist!")
         sys.exit(1)
     return response
 
@@ -135,8 +137,12 @@ def get_cloudiness(table):
     cloud = row.find("td").text.split('\n')[1].replace(' ', '')
     return cloud
 
+print("\n----- SISMOS Weather Forecasting -----")
+print("----- Developed by Callum Taylor -----")
+print("----- MEng Software Engineering -----")
+print("----- Heriot Watt University -----\n")
 
-location = input("Please Enter Your Location: ").replace(' ', '-')
+location = input("~ Please Enter Your Location: ").replace(' ', '-')
 response = get_basic_response(location)
 basic_content = get_content(response)
 basic_table = get_data(basic_content)
@@ -164,11 +170,6 @@ class Weather:
         self.cloudiness = get_cloudiness(detailed_table)
 
 def main():
-
-    print("\n----- SISMOS Weather Forecasting -----")
-    print("----- Developed by Callum Taylor -----")
-    print("----- MEng Software Engineering -----")
-    print("----- Heriot Watt University -----\n")
 
     weather = Weather()
 
