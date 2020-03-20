@@ -41,6 +41,10 @@ def get_data(content):
     table = content.find('tbody')
     return table
 
+def get_location(content):
+    location = content.find("meta", attrs={"name": "locality"})['content']
+    return location
+
 def get_temp(table, type):
     row = table.findAll('tr')[1]
     if(type == 'max'):
@@ -121,7 +125,7 @@ detailed_table = get_data(detailed_content)
 class Weather:
 
     def __init__(self):
-        self.location = location.title()
+        self.location = get_location(basic_content)
         self.max_temp = get_temp(basic_table, "max")
         self.min_temp = get_temp(basic_table, "min")
         self.morning = get_morning(condition)
