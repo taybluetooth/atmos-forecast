@@ -1,7 +1,21 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.abs-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .navbar {
   background-color: #0146c7;
 }
 
-.navbar-toggler {
-  background-color: white;
+.fa-bars {
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
 }
