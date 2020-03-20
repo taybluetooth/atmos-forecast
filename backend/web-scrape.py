@@ -97,6 +97,16 @@ def get_rain(table):
     rain = row.find("td", attrs = {'class' : 'rain'}).text.split('\n')[1].replace(' ', '')
     return rain
 
+def get_uv_index(table):
+    row = table.findAll('tr')[2]
+    uv = row.find("td", attrs = {'class' : 'uv'}).text.split('\n')[1].replace(' ', '')
+    return uv
+
+def get_cloudiness(table):
+    row = table.findAll('tr')[1]
+    cloud = row.find("td").text.split('\n')[1].replace(' ', '')
+    return cloud
+
 
 location = input("Please Enter Your Location: ").replace(' ', '-')
 response = get_basic_response(location)
@@ -122,14 +132,8 @@ class Weather:
         self.wind = get_wind(basic_table)
         self.precipitation = get_precipitation(basic_table)
         self.rain_chance = get_rain(detailed_table)
-        """
-        self.humidity = get_humidity()
-        self.pressure = get_pressure()
-        self.visibility = get_visibility()
-        self.air_quality_index = get_air_index()
-        self.air_quality = get_air_quality()
-        self.uv_index = get_uv_index()
-        """
+        self.uv_index = get_uv_index(detailed_table)
+        self.cloudiness = get_cloudiness(detailed_table)
 
 def main():
 
@@ -151,6 +155,8 @@ def main():
     print("~ Average Wind Speed: " + weather.wind)
     print("~ Precipitation: " + weather.precipitation)
     print("~ Chance of Rain: " + weather.rain_chance)
+    print("~ UV Radiation: " + weather.uv_index)
+    print("~ Cloudiness: " + weather.cloudiness)
 
 
 main()
