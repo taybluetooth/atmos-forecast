@@ -67,6 +67,13 @@ def get_sun(table, type):
     sun = sun.strip('\n')
     return sun
 
+def get_wind(table):
+    row = table.findAll('tr')[4]
+    wind = row.select("td")[0].text
+    wind = wind.strip('\n')
+    return wind
+
+
 location = input("Please Enter Your Location: ").replace(' ', '-')
 response = get_response(location)
 content = get_content(response)
@@ -84,10 +91,10 @@ class Weather:
         self.evening = get_evening(condition)
         self.sunrise = get_sun(table, "sunrise")
         self.sunset = get_sun(table, "sunset")
+        self.wind = get_wind(table)
         """
         self.rain_chance = get_rain()
         self.humidity = get_humidity()
-        self.wind = get_wind()
         self.precipitation() = get_precipitation()
         self.pressure() = get_pressure()
         self.visibility = get_visibility()
@@ -113,5 +120,6 @@ def main():
     print("~ 20:00 - 06:00 Conditions: " + weather.evening)
     print("~ Sunrise Time: " + weather.sunrise)
     print("~ Sunset Time: " + weather.sunset)
+    print("~ Average Wind Speed: " + weather.wind)
 
 main()
