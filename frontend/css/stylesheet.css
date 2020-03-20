@@ -43,14 +43,29 @@ body {
 
 .wave-subheader {
   font-size: 1.0rem;
-  margin: 0 1.0rem 4rem 1.0rem;
+  margin: 1.0rem 1.0rem 2.0rem 1.0rem;
+}
+
+.weather-search {
+  margin: 1.0rem 1.0rem 2.0rem 1.0rem;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.weather-search::placeholder {
+  color: #000;
+}
+
+.wave-container > .btn {
+  padding: 16px;
+  color: #fff;
 }
 
 @keyframes animateWave {
   0% {
     transform: scale(1, 0);
   }
-
   100% {
     transform: scale(1, 1);
   }
