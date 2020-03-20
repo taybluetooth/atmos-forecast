@@ -13,13 +13,37 @@ detailed_content = ""
 detailed_table = ""
 regex = re.compile('([^\s\w]|_)+')
 
+def get_query(location):
+    arr = []
+    link_arr = []
+    url = "https://www.forecast.co.uk/s?l="+location
+    response = requests.get(url, timeout = 5)
+    response.raise_for_status()
+    content = BeautifulSoup(response.content, "html.parser")
+    list = content.find("ol")
+
+    if(len(list.findAll('li')) > 1):
+        for i in range(0, len(list.findAll('li')), 1):
+            item = list.findAll('li')[i]
+            link = item.find('a')['href']
+            arr.append(item.text.strip('\n'))
+            link_arr.append(link)
+            print("~ " + str(i+1) + ". " + arr[i])
+
+        print("\nThere's quite a few " + location.title() + "'s!\n")
+        choice = int(input("Enter the number of the one you meant: "))
+        location = link_arr[choice-1]
+        
+    return location
+
 def get_basic_response(location):
-    url = "https://www.forecast.co.uk/"+location+".html"
+    city = get_query(location)
+    url = "https://www.forecast.co.uk"+city
     try:
         response = requests.get(url, timeout = 5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("That location does not exist!")
+        print("~ That location does not exist!")
         sys.exit(1)
     return response
 
