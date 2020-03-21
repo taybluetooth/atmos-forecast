@@ -2,24 +2,64 @@ html {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  height: 100%;
-}
-
 *, *::before, *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar {
-  background-color: #0A647C;
-}
-
-.fa-bars {
+body {
+  font-family: 'Poppins', sans-serif;
   color: #fff;
 }
 
-.navbar-nav .nav-link {
+.wrapper {
+  background: url("../../assets/images/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.fas, .fab {
   color: #fff;
+}
+
+.condition-icon {
+  font-size: 5em;
+  font-weight: 400;
+}
+
+.city-conditions {
+  margin-left: 40px;
+}
+
+.detailed-view {
+  margin-right: 40px;
+}
+
+.desc {
+  font-size: 14px;
+  margin: 0;
+}
+
+.day-details {
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
+.search {
+  margin-left: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+.search-btn {
+  position: inherit;
+  height: 50px;
 }

@@ -12,44 +12,85 @@
   <title>SISMOS</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md justify-content-between">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav" aria-controls="dual-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse w-50 order-1 order-md-0 dual-nav">
-        <ul class="navbar-nav">
-          <li class="nav-item pl-0">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Weather</a>
-          </li>
-        </ul>
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-md justify-content-between">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav" aria-controls="dual-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="#">
+        </a>
+        <div class="navbar-collapse collapse dual-nav w-50 order-2">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-facebook"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-twitter"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-instagram"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
       </div>
-      <a class="navbar-brand" href="#">
-        <img class="navbar-logo mx-auto mx-auto d-block text-center order-0 order-md-1" width="157px" height="41px" src="../../assets/images/sismos-logo.png">
-      </a>
-      <div class="navbar-collapse collapse dual-nav w-50 order-2">
-        <ul class="nav navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-facebook"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-twitter"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-instagram"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-github"></i></a></li>
-        </ul>
+    </nav>
+
+    <div class="d-flex flex-row">
+      <div class="city-conditions flex-col">
+        <span class="condition-icon p-1">
+          <i class="far fa-sun"></i>
+        </span>
+        <h4 class="condition-description p-1"> Sunny </h4>
+        <h6 class="city-name p-1"> Edinburgh </h6>
+        <h3 class="temperature p-1"> <strong>10°c</strong> </h3>
+        <p class="location-change p-1"> Change Location <i class="fas fa-map-marker-alt"></i></p>
+      </div>
+
+      <div class="d-flex flex-row mx-auto">
+        <input class="search form-control" type="search" placeholder="Search City" aria-label="Search">
+        <button class="search-btn btn" type="submit"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="detailed-view flex-col ml-auto">
+        <p class="humidity-description desc">
+          <i class="fas fa-tint fa-2x p-1"></i> Humidity:
+        </p>
+        <p class="humidity-figure fig">7%</p>
+        <p class="uv-description desc">
+          <i class="fas fa-sun fa-2x p-1"></i> UV-Index:
+        </p>
+        <p class="uv-figure fig">Low</p>
+        <p class="precipitation-description desc">
+          <i class="fas fa-umbrella fa-2x p-1"></i> Precipitation:
+        </p>
+        <p class="precipitation-figure fig">1mm</p>
+        <p class="chance-of-rain-description desc">
+          <i class="fas fa-cloud-rain fa-2x p-1"></i> Chance of Rain:
+        </p>
+        <p class="chance-of-rain-figure fig">14%</p>
+        <p class="sunrise-desc desc">
+          <i class="fas fa-cloud-sun fa-2x p-1"></i> Sunrise:
+        </p>
+        <p class="sunrise-figure fig"> 06:43am </p>
+        <p class="sunrise-desc desc">
+          <i class="fas fa-cloud-moon fa-2x p-1"></i> Sunset:
+        </p>
+        <p class="sunrise-figure fig"> 18:37pm </p>
       </div>
     </div>
-  </nav>
+
+    <div class="day-details d-flex flex-row">
+      <div class="flex-col">
+        <h4 class="day"> Saturday</h4>
+        <p class="desc"> 21/03/20</p>
+      </div>
+      <div class="detailed-view flex-row ml-auto">
+      </div>
+    </div>
+
 
 
   <script src="https://kit.fontawesome.com/2ef162273a.js" crossorigin="anonymous"></script>
