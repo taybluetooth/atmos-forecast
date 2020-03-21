@@ -5,6 +5,7 @@ import re
 
 ## GLOBAL VARIABLE DECLARATION ##
 
+city = ""
 basic_response = ""
 basic_content = ""
 basic_table = ""
@@ -33,27 +34,28 @@ def get_query(location):
 
         print("\nThere's quite a few " + location.title() + "'s!\n")
         choice = int(input("~ Enter the number of the one you meant: "))
-        while(not(choice >= 0 and choice < len(link_arr))):
+        while(not(choice > 0 and choice < len(link_arr))):
             choice = int(input("~ Please enter a valid choice: "))
         location = link_arr[choice - 1]
+    else:
+        location = "/" + location + ".html"
 
     return location
 
 
-def get_basic_response(location):
-    city = get_query(location)
+def get_basic_response():
     url = "https://www.forecast.co.uk" + city
     try:
         response = requests.get(url, timeout=5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("~ That location does not exist!")
+        print(err)
         sys.exit(1)
     return response
 
 
-def get_detailed_response(location):
-    url = "https://www.forecast.co.uk/" + location + ".html?v=detailed"
+def get_detailed_response():
+    url = "https://www.forecast.co.uk" + city + "?v=detailed"
     try:
         response = requests.get(url, timeout=5)
         response.raise_for_status()
@@ -139,15 +141,13 @@ def get_precipitation(table):
 
 def get_rain(table):
     row = table.findAll('tr')[0]
-    rain = row.find("td", attrs={'class': 'rain'}
-                    ).text.split('\n')[1].replace(' ', '')
+    rain = row.find("td", attrs={'class': 'rain'}).text.split('\n')[1].replace(' ', '')
     return rain
 
 
 def get_uv_index(table):
     row = table.findAll('tr')[2]
-    uv = row.find("td", attrs={'class': 'uv'}).text.split(
-        '\n')[1].replace(' ', '')
+    uv = row.find("td", attrs={'class': 'uv'}).text.split('\n')[1].replace(' ', '')
     return uv
 
 
@@ -157,18 +157,19 @@ def get_cloudiness(table):
     return cloud
 
 
-print("\n----- SISMOS Weather Forecasting -----")
-print("----- Developed by Callum Taylor -----")
-print("----- MEng Software Engineering -----")
-print("----- Heriot Watt University -----\n")
+print("\n~ SISMOS Weather Forecasting")
+print("~ Developed by Callum Taylor")
+print("~ MEng Software Engineering")
+print("~ Heriot Watt University\n")
 
 location = input("~ Please Enter Your Location: ").replace(' ', '-')
-response = get_basic_response(location)
+city = get_query(location)
+response = get_basic_response()
 basic_content = get_content(response)
 basic_table = get_data(basic_content)
 condition = get_condition_array(basic_table)
 
-detailed = get_detailed_response(location)
+detailed = get_detailed_response()
 detailed_content = get_content(detailed)
 detailed_table = get_data(detailed_content)
 
@@ -195,7 +196,7 @@ def main():
 
     weather = Weather()
 
-    print("~ Location: " + weather.location)
+    print("\n~ Location: " + weather.location)
     print("~ Maximum Temperature: " + weather.max_temp)
     print("~ Minimum Temperature: " + weather.min_temp)
     print("~ 08:00 - 14:00 Conditions: " + weather.morning)
