@@ -30,21 +30,25 @@ def get_query(location):
     content = BeautifulSoup(response.content, "html.parser")
     list = content.find("ol")
 
-    if(len(list.findAll('li')) > 1):
-        for i in range(0, len(list.findAll('li')), 1):
-            item = list.findAll('li')[i]
-            link = item.find('a')['href']
-            arr.append(item.text.strip('\n'))
-            link_arr.append(link)
-            print("~ " + str(i + 1) + ". " + arr[i])
+    try:
+        if(len(list.findAll('li')) > 1):
+            for i in range(0, len(list.findAll('li')), 1):
+                item = list.findAll('li')[i]
+                link = item.find('a')['href']
+                arr.append(item.text.strip('\n'))
+                link_arr.append(link)
+                print("~ " + str(i + 1) + ". " + arr[i])
 
-        print("\nThere's quite a few " + location.title() + "'s!\n")
-        choice = int(input("~ Enter the number of the one you meant: "))
-        while(not(choice > 0 and choice < len(link_arr))):
-            choice = int(input("~ Please enter a valid choice: "))
-        location = link_arr[choice - 1]
-    else:
-        location = "/" + location + ".html"
+            print("\nThere's quite a few " + location.title() + "'s!\n")
+            choice = int(input("~ Enter the number of the one you meant: "))
+            while(not(choice > 0 and choice < len(link_arr))):
+                choice = int(input("~ Please enter a valid choice: "))
+            location = link_arr[choice - 1]
+        elif(len(list.findAll('li')) == 1):
+            location = "/" + location + ".html"
+    except:
+        print("~ 404 Error - SISMOS Cannot Locate Data")
+        sys.exit(1)
 
     return location
 
@@ -55,7 +59,7 @@ def get_basic_response():
         response = requests.get(url, timeout=5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print(err)
+        print("~ 404 Error - SISMOS Cannot Locate Data")
         sys.exit(1)
     return response
 
@@ -66,7 +70,7 @@ def get_detailed_response():
         response = requests.get(url, timeout=5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("~ That location does not exist!")
+        print("~ 404 Error - SISMOS Cannot Locate Data")
         sys.exit(1)
     return response
 
