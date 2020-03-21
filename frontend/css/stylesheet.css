@@ -12,8 +12,9 @@ body {
   box-sizing: inherit;
 }
 
-.navbar {
-  background-color: #0146c7;
+.wrapper {
+  background-color: #db000e;
+
 }
 
 .fa-bars {
@@ -26,7 +27,6 @@ body {
 
 .wave-container {
   position: relative;
-  background-color: #0146c7;
   text-align: center;
   overflow: hidden;
   color: #fff;
@@ -37,7 +37,7 @@ body {
 }
 
 .wave-header {
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 3.5rem 1.0rem 2.0rem 1.0rem;
 }
 
@@ -47,10 +47,11 @@ body {
 }
 
 .weather-search {
-  margin: 1.0rem 1.0rem 2.0rem 1.0rem;
-  padding: 16px;
-  border-radius: 14px;
+  margin: 1.0rem 1.0rem 1.0rem 1.0rem;
+  padding: 12px;
+  border-radius: 12px;
   text-align: center;
+  border: 1px solid black;
 }
 
 .weather-search::placeholder {
