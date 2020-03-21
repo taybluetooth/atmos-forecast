@@ -14,6 +14,12 @@ detailed_content = ""
 detailed_table = ""
 regex = re.compile('([^\s\w]|_)+')
 
+def get_input():
+    location = str(input("~ Please Enter Your Location: ").replace(' ', '-'))
+    while(not(location.isalpha())):
+        location = str(input("~ Invalid Location, Try Again: ").replace(' ', '-'))
+    return location
+
 
 def get_query(location):
     arr = []
@@ -162,7 +168,7 @@ print("~ Developed by Callum Taylor")
 print("~ MEng Software Engineering")
 print("~ Heriot Watt University\n")
 
-location = input("~ Please Enter Your Location: ").replace(' ', '-')
+location = get_input()
 city = get_query(location)
 response = get_basic_response()
 basic_content = get_content(response)
