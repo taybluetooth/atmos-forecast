@@ -47,7 +47,7 @@ def get_query(location):
         elif(len(list.findAll('li')) == 1):
             location = "/" + location + ".html"
     except:
-        print("~ 404 Error - SISMOS Cannot Locate Data")
+        print("~ 404 Error - ATMOS Cannot Locate Data")
         sys.exit(1)
 
     return location
@@ -59,7 +59,7 @@ def get_basic_response():
         response = requests.get(url, timeout=5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("~ 404 Error - SISMOS Cannot Locate Data")
+        print("~ 404 Error - ATMOS Cannot Locate Data")
         sys.exit(1)
     return response
 
@@ -70,7 +70,7 @@ def get_detailed_response():
         response = requests.get(url, timeout=5)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("~ 404 Error - SISMOS Cannot Locate Data")
+        print("~ 404 Error - ATMOS Cannot Locate Data")
         sys.exit(1)
     return response
 
@@ -167,7 +167,7 @@ def get_cloudiness(table):
     return cloud
 
 
-print("\n~ SISMOS Weather Forecasting")
+print("\n~ ATMOS Weather Forecasting")
 print("~ Developed by Callum Taylor")
 print("~ MEng Software Engineering")
 print("~ Heriot Watt University\n")
