@@ -13,7 +13,7 @@ body {
 }
 
 .navbar {
-  background-color: #db000e;
+  background-color: #0A647C;
 }
 
 .fa-bars {
@@ -22,41 +22,4 @@ body {
 
 .navbar-nav .nav-link {
   color: #fff;
-}
-
-.wave-container {
-  background-color: #db000e;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  color: #fff;
-}
-
-.wave-container>svg {
-  display: block;
-}
-
-.wave-header {
-  font-size: 2rem;
-  margin: 3.5rem 1.0rem 2.0rem 1.0rem;
-}
-
-.wave-subheader {
-  font-size: 1.0rem;
-  margin: 1.0rem 1.0rem 2.0rem 1.0rem;
-}
-
-@keyframes animateWave {
-  0% {
-    transform: scale(1, 0);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-
-.wave-container>svg {
-  display: block;
-  transform-origin: bottom;
-  animation: animateWave 3000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
