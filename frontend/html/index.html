@@ -25,10 +25,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav" aria-controls="dual-nav" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
-        <a href="/" class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25">
-          <img src="../../assets/images/test.png" width="100px" height="75px"></img>
-        </a>
-        <div class="navbar-collapse collapse dual-nav w-50 order-2">
+        <div class="navbar-collapse collapse dual-nav order-2">
           <ul class="nav navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-facebook"></i></a></li>
             <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-twitter"></i></a></li>
@@ -47,12 +44,11 @@
         <h4 class="condition-description p-1"> Sunny </h4>
         <h6 class="city-name p-1"> Edinburgh </h6>
         <h3 class="temperature p-1"> <strong>10°c</strong> </h3>
-        <p class="location-change p-1"> Change Location <i class="fas fa-map-marker-alt"></i></p>
-      </div>
-
-      <div class="d-flex flex-row mx-auto">
-        <input class="search form-control" type="search" placeholder="Search City" aria-label="Search">
-        <button class="search-btn btn" type="submit"><i class="fas fa-search"></i></button>
+        <button class="btn btn-lg btn-outline-primary location-change p-1">
+          <a href="#search">
+            Change Location <i class="fas fa-map-marker-alt"></i>
+          </a>
+        </button>
       </div>
 
       <div class="detailed-view flex-col ml-auto">
@@ -92,12 +88,40 @@
       </div>
     </div>
 
+    <div id="search">
+      <button type="button" class="close">×</button>
+      <form>
+        <input type="search" value="" placeholder="Search a city..." />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
 
 
   <script src="https://kit.fontawesome.com/2ef162273a.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script>
+      $(function () {
+      $('a[href="#search"]').on('click', function(event) {
+          event.preventDefault();
+          $('#search').addClass('open');
+          $('#search > form > input[type="search"]').focus();
+      });
+
+      $('#search, #search button.close').on('click keyup', function(event) {
+          if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+              $(this).removeClass('open');
+          }
+      });
+
+      $('form').submit(function(event) {
+          event.preventDefault();
+          return false;
+      })
+    });
+  </script>
 
 </body>
 
