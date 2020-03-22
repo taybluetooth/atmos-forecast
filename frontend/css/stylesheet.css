@@ -110,15 +110,15 @@ body {
   position: absolute;
   top: 50%;
   width: 100%;
-  color: rgb(255, 255, 255);
+  color: #fff;
   background: rgba(0, 0, 0, 0);
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 300;
   text-align: center;
   border: 0px;
   margin: 0px auto;
   margin-top: -51px;
-  padding-left: 30px;
+  padding-left: 40px;
   padding-right: 30px;
   outline: none;
 }
@@ -143,4 +143,30 @@ body {
   opacity: 1;
   padding: 10px 17px;
   font-size: 27px;
+}
+
+@media (max-width: 576px) {
+  html {
+    height: 100%;
+    margin: auto;
+    padding: 0;
+  }
+  .wrapper {
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    bottom: 0;
+  }
+  .city-conditions, .detailed-view, .day-details  {
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+  }
 }

@@ -22,9 +22,6 @@
   <div class="wrapper">
     <nav class="navbar navbar-expand-md justify-content-between">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav" aria-controls="dual-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
         <div class="navbar-collapse collapse dual-nav order-2">
           <ul class="nav navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href=""><i class="fab fa-facebook"></i></a></li>
@@ -36,55 +33,57 @@
       </div>
     </nav>
 
-    <div class="d-flex flex-row">
-      <div class="city-conditions flex-col">
-        <span class="condition-icon p-1">
-          <i class="far fa-sun"></i>
-        </span>
-        <h4 class="condition-description p-1"> Sunny </h4>
-        <h6 class="city-name p-1"> Edinburgh </h6>
-        <h3 class="temperature p-1"> <strong>10°c</strong> </h3>
-        <button class="btn btn-lg btn-outline-primary location-change p-1">
-          <a href="#search">
-            Change Location <i class="fas fa-map-marker-alt"></i>
-          </a>
-        </button>
+    <div class="d-sm-flex flex-sm-column">
+      <div class="d-sm-flex flex-sm-row">
+        <div class="city-conditions d-sm-flex-sm-column">
+          <span class="condition-icon p-1">
+            <i class="far fa-sun"></i>
+          </span>
+          <h4 class="condition-description p-1"> Sunny </h4>
+          <h6 class="city-name p-1"> Edinburgh </h6>
+          <h3 class="temperature p-1"> <strong>10°c</strong> </h3>
+          <button class="btn btn-sm btn-outline-primary location-change p-1">
+            <a href="#search">
+              Change Location <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </button>
+        </div>
+
+        <div class="detailed-view ml-auto d-sm-flex flex-sm-column">
+          <p class="humidity-description desc">
+            <i class="fas fa-tint fa-2x p-1"></i> Humidity:
+          </p>
+          <p class="humidity-figure fig">7%</p>
+          <p class="uv-description desc">
+            <i class="fas fa-sun fa-2x p-1"></i> UV-Index:
+          </p>
+          <p class="uv-figure fig">Low</p>
+          <p class="precipitation-description desc">
+            <i class="fas fa-umbrella fa-2x p-1"></i> Precipitation:
+          </p>
+          <p class="precipitation-figure fig">1mm</p>
+          <p class="chance-of-rain-description desc">
+            <i class="fas fa-cloud-rain fa-2x p-1"></i> Chance of Rain:
+          </p>
+          <p class="chance-of-rain-figure fig">14%</p>
+          <p class="sunrise-desc desc">
+            <i class="fas fa-cloud-sun fa-2x p-1"></i> Sunrise:
+          </p>
+          <p class="sunrise-figure fig"> 06:43am </p>
+          <p class="sunrise-desc desc">
+            <i class="fas fa-cloud-moon fa-2x p-1"></i> Sunset:
+          </p>
+          <p class="sunrise-figure fig"> 18:37pm </p>
+        </div>
       </div>
 
-      <div class="detailed-view flex-col ml-auto">
-        <p class="humidity-description desc">
-          <i class="fas fa-tint fa-2x p-1"></i> Humidity:
-        </p>
-        <p class="humidity-figure fig">7%</p>
-        <p class="uv-description desc">
-          <i class="fas fa-sun fa-2x p-1"></i> UV-Index:
-        </p>
-        <p class="uv-figure fig">Low</p>
-        <p class="precipitation-description desc">
-          <i class="fas fa-umbrella fa-2x p-1"></i> Precipitation:
-        </p>
-        <p class="precipitation-figure fig">1mm</p>
-        <p class="chance-of-rain-description desc">
-          <i class="fas fa-cloud-rain fa-2x p-1"></i> Chance of Rain:
-        </p>
-        <p class="chance-of-rain-figure fig">14%</p>
-        <p class="sunrise-desc desc">
-          <i class="fas fa-cloud-sun fa-2x p-1"></i> Sunrise:
-        </p>
-        <p class="sunrise-figure fig"> 06:43am </p>
-        <p class="sunrise-desc desc">
-          <i class="fas fa-cloud-moon fa-2x p-1"></i> Sunset:
-        </p>
-        <p class="sunrise-figure fig"> 18:37pm </p>
-      </div>
-    </div>
-
-    <div class="day-details d-flex flex-row">
-      <div class="flex-col">
-        <h4 class="day"> Saturday</h4>
-        <p class="desc"> 21/03/20</p>
-      </div>
-      <div class="detailed-view flex-row ml-auto">
+      <div class="day-details d-sm-flex flex-sm-row">
+        <div class="flex-col">
+          <h4 class="day"> Saturday</h4>
+          <p class="desc"> 21/03/20</p>
+        </div>
+        <div class="detailed-view flex-row ml-auto">
+        </div>
       </div>
     </div>
 
