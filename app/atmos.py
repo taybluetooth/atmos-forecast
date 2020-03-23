@@ -9,7 +9,7 @@ import datetime
 
 @app.route('/basic_req')
 def basic_req(city):
-    url = "https://www.forecast.co.uk" + city # replace!
+    url = "https://www.forecast.co.uk" + city #
     try:
         response = requests.get(url, timeout=5)
         response.raise_for_status()
@@ -62,7 +62,7 @@ def condition(city):
     regex = re.compile('([^\s\w]|_)+')
     row = basic_data(city).findAll('tr')[9]
     details = row.find("td", attrs={'class': 'weather'})
-    condition = details.find('p').text.split('\n')[2]
+    condition = details.find('p').text.split('\n')[2].replace('-', '').strip()
     regex.sub('', condition).title()
     return condition
 
@@ -108,6 +108,85 @@ def cloudiness(city):
     cloud = row.find("td").text.split('\n')[1].replace(' ', '')
     return cloud
 
+@app.route('/icon')
+def icon(condition):
+    if(condition == "Clear"):
+        return "sun"
+
+    elif(condition == "Mostly clear"):
+        return "cloud-sun"
+
+    elif(condition == "Overcast"):
+        return "cloud"
+
+    elif(condition == "Overcast and light rain"):
+        return "cloud-rain"
+
+    elif(condition == "Overcast and showers"):
+        return "cloud-showers-heavy"
+
+    elif(condition == "Overcast and rain"):
+        return "cloud-showers-heavy"
+
+    elif(condition == "Overcast and light snow"):
+        return "snowflake"
+
+    elif(condition == "Overcast and snow"):
+        return "snowflake"
+
+    elif(condition == "Overcast and snow showers"):
+        return "snowflake"
+
+    elif(condition == "Overcast and wet snow"):
+        return "snowflake"
+
+    elif(condition == "Overcast and wet snow showers"):
+        return "snowflake"
+
+    elif(condition == "Partly cloudy"):
+        return "cloud"
+
+    elif(condition == "Partly cloudy and rain"):
+        return "cloud-rain"
+
+    elif(condition == "Partly cloudy and showers"):
+        return "cloud-showers-heavy"
+
+    elif(condition == "Partly cloudy and light rain"):
+        return "cloud-rain"
+
+    elif(condition == "Partly cloudy and light snow"):
+        return "snowflake"
+
+    elif(condition == "Cloudy and light rain"):
+        return "cloud-rain"
+
+    elif(condition == "Cloudy"):
+        return "cloud"
+
+    elif(condition == "Cloudy and light snow"):
+        return "snowflake"
+
+    elif(condition == "Cloudy and wet snow"):
+        return "snowflake"
+
+    elif(condition == "Cloudy and wet snow showers"):
+        return "snowflake"
+
+    elif(condition == "Cloudy and light wet snow"):
+        return "snowflake"
+
+    elif(condition == "Cloudy and snow"):
+        return "snowflake"
+
+    elif(condition == "Cloudy and snow showers"):
+        return "snowflake"
+
+    elif("possible thunderstorms" in condition):
+        return "bolt"
+
+
+
 @app.route('/date')
 def date():
     x = datetime.datetime.now()
@@ -128,6 +207,8 @@ def query():
     content = BeautifulSoup(response.content, "html.parser")
     list = content.find("ol")
 
+    if(list is None):
+        return render_template('invalid.html')
     try:
         if(len(list.findAll('li')) > 1):
             for i in range(0, len(list.findAll('li')), 1):
@@ -158,6 +239,7 @@ def index(text):
         'rain': rain(text),
         'uv': uv(text),
         'cloudiness': cloudiness(text),
+        'icon': icon(condition(text)),
         'date': str(date().day) + "/" + str(date().month) + "/" + str(date().year),
         'day': date().strftime("%A")
     }

@@ -74,28 +74,6 @@ body {
   height: 100%;
   background-color: #02075d;
 
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-
-  -webkit-transform: translate(0px, -100%) scale(0, 0);
-  -moz-transform: translate(0px, -100%) scale(0, 0);
-  -o-transform: translate(0px, -100%) scale(0, 0);
-  -ms-transform: translate(0px, -100%) scale(0, 0);
-  transform: translate(0px, -100%) scale(0, 0);
-
-  opacity: 0;
-}
-
-#search.open {
-  -webkit-transform: translate(0px, 0px) scale(1, 1);
-  -moz-transform: translate(0px, 0px) scale(1, 1);
-  -o-transform: translate(0px, 0px) scale(1, 1);
-  -ms-transform: translate(0px, 0px) scale(1, 1);
-  transform: translate(0px, 0px) scale(1, 1);
-  opacity: 1;
 }
 
 #search h3 {
@@ -133,18 +111,6 @@ body {
   margin-left: -45px;
 }
 
-#search .close {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  color: #02075d;
-  background-color: #fff;
-  border-color: #ccc;
-  opacity: 1;
-  padding: 10px 17px;
-  font-size: 27px;
-}
-
 .results {
   text-align: center;
   position: relative;
@@ -171,6 +137,15 @@ body {
   text-decoration: none;
   background-color: white;
   color: #02075d;
+}
+
+.error-msg {
+  text-align: center;
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+  top: 0;
+  left: 0;
 }
 
 @media (max-width: 576px) {
