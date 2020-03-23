@@ -164,6 +164,9 @@ def icon(condition):
     elif(condition == "Cloudy"):
         return "cloud"
 
+    elif(condition == "Cloudy and showers"):
+        return "cloud-rain"
+
     elif(condition == "Cloudy and light snow"):
         return "snowflake"
 
