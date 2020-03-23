@@ -1,1 +1,1 @@
-web: atmos.py
+web: gunicorn atmos-weather:app
