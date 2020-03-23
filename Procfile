@@ -1,1 +1,1 @@
-web: gunicorn atmos-weather:app
+web: gunicorn atmos:app
