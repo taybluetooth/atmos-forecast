@@ -203,7 +203,7 @@ def init():
 def query():
     arr = []
     link_arr = []
-    location = request.form['text']
+    location = request.form['text'].lower()
     url = "https://www.forecast.co.uk/s?l=" + location
     response = requests.get(url, timeout=5)
     response.raise_for_status()
