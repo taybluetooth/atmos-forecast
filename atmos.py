@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from flask import render_template
 from flask import request
+from flask import redirect
 from app import app
 import requests
 import sys
@@ -50,6 +51,8 @@ def location(city):
 
 @app.route('/temp')
 def temp(city):
+    if(basic_data(city) is None):
+        return render_template('invalid.html')
     temp = basic_data(city).findAll('tr')[1].select("td")[0].text
     temp = temp.strip('\n')
     return temp
@@ -188,8 +191,6 @@ def icon(condition):
     elif("possible thunderstorms" in condition):
         return "bolt"
 
-
-
 @app.route('/date')
 def date():
     x = datetime.datetime.now()
@@ -250,4 +251,6 @@ def index(text):
 
 @app.route('/results', methods=['POST'])
 def results():
+    if(basic_content(request.form.get('weather')).find('tbody') is None):
+        return redirect('/')
     return index(request.form.get('weather'))
